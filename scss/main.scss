@@ -5,16 +5,20 @@ $text-color: #333;
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Ultra', serif;
+  font-family: 'Rubik Mono One', sans-serif;
   color: $text-color;
+  box-sizing: border-box;
 }
 
-
 .nav {
-  display: flex;
-  justify-content: space-between;
-  width: 100vw;
+  position: sticky;
+  top: 0;
+  width: 100%;
   height: 10vh;
+  display: flex;
+  background: white;
+  z-index: 1;
+  justify-content: space-between;
   align-items: center;
 
   ul {
@@ -29,6 +33,7 @@ $text-color: #333;
   }
 
   a {
+    font-family: 'Ultra', serif;
     text-decoration: none;
     color: $text-color;
     text-align: center;
@@ -69,12 +74,29 @@ $text-color: #333;
   }
 }
 
-.content {
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 2rem;
+  overflow: hidden;
+}
+
+.containerForContent {
+  background: $bg-image no-repeat center right /cover;
   height: 90vh;
+}
+
+.content {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: $bg-image no-repeat center right /cover;
+  //overlay
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
 
   .welcome {
     display: flex;
@@ -82,30 +104,22 @@ $text-color: #333;
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
-    padding-bottom: 30rem;
+    padding-bottom: 2rem;
 
     .main-text {
       color: white;
-      font-family: 'Rubik Mono One', sans-serif;
       padding-bottom: 3rem;
     }
 
-    .secondary-text {
-      color: white;
-      font-family: 'Rubik Mono One', sans-serif;
-      padding-bottom: 1rem;
-
-    }
-
+    .secondary-text,
     .tertiary-text {
       color: white;
-      font-family: 'Rubik Mono One', sans-serif;
       padding-bottom: 1rem;
-
     }
 
     a {
       text-decoration: none;
+      font-family: 'Rubik Mono One', sans-serif;
       padding: 1rem;
       font-size: 1.4rem;
       background: #fff;
@@ -114,26 +128,9 @@ $text-color: #333;
       cursor: pointer;
 
       &:hover {
+        border: 1px solid #FF9966;
         color: #FF9966;
-
       }
-    }
-  }
-
-  footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    color: $text-color;
-
-    p {
-      padding-right: 1rem;
-      color: #fff !important;
-
     }
   }
 }
@@ -146,8 +143,7 @@ $text-color: #333;
   grid-template-rows: auto;
   grid-template-areas:
     "img1 img2 img3"
-    "img4 img5 img6"
-    "footer footer footer";
+    "img4 img5 img6";
   gap: 2rem;
 
   img {
@@ -168,17 +164,14 @@ $text-color: #333;
     grid-area: img2;
     height: 100%;
     border: #fff 3px solid;
-
   }
 
   .img3 {
     margin-top: 1rem;
     margin-right: 1rem;
-
     grid-area: img3;
     height: 100%;
     border: #fff 3px solid;
-
   }
 
   .img4 {
@@ -200,22 +193,136 @@ $text-color: #333;
     height: 100%;
     margin-right: 1rem;
   }
+}
 
-  footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    grid-area: footer;
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+//utilities
 
-    p {
-      padding-right: 1rem;
-      padding-bottom: 1rem;
-      color: #fff !important;
+.text-center {
+  text-align: center;
+}
 
+.separator {
+  height: 5vh;
+  background: #333;
+  width: 100%;
+}
+
+.py-1 {
+  padding: 1.5rem 0;
+}
+
+.py-2 {
+  padding: 2rem 0;
+}
+
+.py-3 {
+  padding: 3rem 0;
+}
+
+.p-1 {
+  padding: 1.5rem;
+}
+
+.p-2 {
+  padding: 2rem;
+}
+
+.p-3 {
+  padding: 3rem;
+}
+
+//menu with coffee
+.list {
+  height: 30vh;
+  display: flex;
+
+  div {
+    flex: 1;
+  }
+
+  h2 {
+    padding-top: 1.5rem;
+  }
+
+
+  .img {
+    background: url('/dist/img/gallery/coffee5.jpeg') no-repeat center center/cover
+  }
+
+  .coffee-menu {
+    text-decoration: none;
+
+    ul {
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
     }
+
+    li {
+      transition: all 0.2s;
+
+
+      i {
+        font-size: 1.3rem;
+      }
+
+      &:hover {
+        color: #FF9966;
+
+        span {
+          opacity: 1;
+        }
+      }
+
+      span {
+        display: inline-block;
+        font-weight: normal;
+        opacity: 0;
+        transition:
+          opacity 0.1s 0.2s,
+          transform 0.2s 0.2s;
+      }
+
+      border-bottom: solid 1px #333;
+      font-size:1.3rem;
+      padding: 0.5rem;
+      list-style: none;
+    }
+  }
+}
+
+// icons panel
+.items {
+  display: flex;
+
+  .item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.2rem;
+
+    i {
+      font-size: 2rem;
+      padding-bottom: 0.4rem;
+    }
+
+  }
+}
+
+// footer
+
+footer {
+  width: 100%;
+  height: 5vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: $text-color;
+
+  p {
+    padding-right: 1rem;
+    color: #333 !important;
+
   }
 }
