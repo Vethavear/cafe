@@ -1,4 +1,4 @@
-$bg-image: url('/dist//img/oldcofee.jpeg');
+$bg-image: url('../img/oldcofee.jpeg');
 
 $text-color: #333;
 
@@ -232,7 +232,7 @@ $text-color: #333;
 
 
   .img {
-    background: url('/dist/img/gallery/coffee5.jpeg') no-repeat center center/cover
+    background: url('../img/gallery/coffee5.jpeg') no-repeat center center/cover
   }
 
   .coffee-menu {
