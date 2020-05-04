@@ -28,12 +28,18 @@
         .welcome{
             font-size:1.1rem;
             h1{
+               padding-top:4rem;
                 text-align: center;
+            }
+            h2{
+                text-align:center;
             }
         }
     }
 
     .list{
+        min-height:20vh;
+        height:100%;
         flex-direction: column;
         .img{
             display: none;
@@ -63,6 +69,11 @@
         }
     }
     .menuContent{
+        *{
+        overflow: hidden;
+
+        }
+
         grid-template-columns: 1fr;
         grid-template-areas: none;
         height:100%;

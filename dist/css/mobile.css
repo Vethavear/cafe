@@ -22,9 +22,15 @@
     font-size: 1.1rem;
   }
   .content .welcome h1 {
+    padding-top: 4rem;
+    text-align: center;
+  }
+  .content .welcome h2 {
     text-align: center;
   }
   .list {
+    min-height: 20vh;
+    height: 100%;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -66,6 +72,9 @@
         grid-template-columns: 1fr;
         grid-template-areas: none;
     height: 100%;
+  }
+  .menuContent * {
+    overflow: hidden;
   }
   .items {
     -webkit-box-orient: vertical;
